@@ -1,0 +1,55 @@
+POST https://achei-servicos-server.vercel.app/signup
+Content-Type: application/json
+
+{
+  "name": "Vanires",
+  "email": "eupublicomsm@gmail.com",
+  "password": "123456",
+  "verifyPass": "123456"
+}
+
+###
+POST https://achei-servicos-server.vercel.app/login
+Content-Type: application/json
+
+{
+  "email": "mesmo245@gmail.com",
+  "password": "123456"
+}
+
+###
+GET https://achei-servicos-server.vercel.app/jobs
+Authorization: eyJhbGciOiJIUzI1NiJ9.NTZiM2I3ZDYtZDE2ZC00Mzc5LTkwY2MtNTE1ODQ1MmE4MzY4.MqZgDCiXL-IabT_UtMuQouaFS8Lddj7IT-HJceLX-Uo
+
+###
+GET http://localhost:3003/job/5ffd42db-5d15c-9410-f3346e36a87a
+Authorization: eyJhbGciOiJIUzI1NiJ9.NTZiM2I3ZDYtZDE2ZC00Mzc5LTkwY2MtNTE1ODQ1MmE4MzY4.MqZgDCiXL-IabT_UtMuQouaFS8Lddj7IT-HJceLX-Uo
+
+###
+PATCH http://localhost:3003/user/pushtoken
+Authorization: eyJhbGciOiJIUzI1NiJ9.NTZiM2I3ZDYtZDE2ZC00Mzc5LTkwY2MtNTE1ODQ1MmE4MzY4.MqZgDCiXL-IabT_UtMuQouaFS8Lddj7IT-HJceLX-Uo
+Content-Type: application/json
+
+{
+  "push_token":"123"
+}
+
+###
+POST http://localhost:3003/jobs
+Authorization: eyJhbGciOiJIUzI1NiJ9.MWVjOTUwMzktZDUzNC00MWY1LThjZDMtN2I3YWU1ZGVmNWMz.sdBSP9givC6SoAifeSG1dcnnt0dbRpNqlbR962lSz8I
+Content-Type: application/json
+
+{
+  "title": "Aulas de inglês",
+  "description": "Ministração de aulas de inglês particulares. Métodos e lições práticas baseados puramente na conversação sem a necessidade de materias didáticos",
+  "phone": 12345678911,
+  "period": "De seguna à sexta no horário comercial"
+}
+
+###
+DELETE http://localhost:3003/job/497568ed-a406-4e21-953d-6ab7c31b4287
+Authorization: eyJhbGciOiJIUzI1NiJ9.NTZiM2I3ZDYtZDE2ZC00Mzc5LTkwY2MtNTE1ODQ1MmE4MzY4.MqZgDCiXL-IabT_UtMuQouaFS8Lddj7IT-HJceLX-Uo
+
+###
+POST  http://localhost:3003/send_notification
+Authorization: eyJhbGciOiJIUzI1NiJ9.OTI5NTFjZWEtNTBhNi00ODA0LTllZTYtMGQ1ZjQ0ZjJjN2Yy.xeuWfr03cZ5ZTxMIdZizzIfvKWd1BjHeKxKluopfXX8
