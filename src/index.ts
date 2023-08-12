@@ -1,72 +1,36 @@
-import express from 'express'
-import cors from 'cors'
-import multer from 'multer'
-
-// import webPush from 'web-push'
-
-// console.log(webPush.generateVAPIDKeys())
-
-
-const app = express()
-app.use(express.json())
-app.use(cors())
+import { app } from "./app"
+import UserBusiness from "./business/UserBusiness"
+import UserController from "./controller/UserController"
+import UserData from "./data/UserData"
+import JobBusiness from "./business/JobBusiness"
+import JobController from "./controller/JobController"
+import JobData from "./data/JobData"
+import Services from "./services/Services"
 
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb)=>{
-      cb(null, './src/uploads')
-  },
-  filename: (req, file, cb)=>{
-      cb(null, file.originalname)
-  }
-})
+const userController = new UserController(
+    new UserBusiness(
+        new UserData,
+        new Services
+    )
+)
 
-const upload = multer({ storage: storage })
-
-
-import { createUser } from './endpoints/createUser'
-import { login } from './endpoints/login'
-import { createJob } from   './endpoints/createJob'
-import { uploadJobImage } from './endpoints/uploadJobImage'
-import { registWebNotification } from './endpoints/registWebNotification'
-import { sendWebNotification } from './endpoints/sendWebNotification'
-
-import { getAllJobs } from './endpoints/getAllJobs'
-import { getJobsByUser } from './endpoints/getJobsByUser'
-import { getJobById } from './endpoints/getJobById'
-import { getUserById } from './endpoints/getUserById'
-import { displayJobImage } from './endpoints/displayJobImage'
-import { getPublicKey } from './endpoints/getPublicKey'
-
-
-import { deleteJob } from './endpoints/deleteJob'
-import { delImage } from './endpoints/delImage'
-
-import { updatePushToken } from './endpoints/updatePushToken'
-
-
-app.post('/signup', createUser)
-app.post('/login', login)
-app.post('/jobs', createJob)
-app.post('/image/:id', upload.single('image'), uploadJobImage)
-app.post('/rgnotification', registWebNotification)
-app.post('/send_notification', sendWebNotification)
-
-app.get('/public_key', getPublicKey)
-app.get('/jobs', getAllJobs)
-app.get('/userjobs', getJobsByUser)
-app.get('/job/:id', getJobById)
-app.get('/user', getUserById)
-app.get('/image/:id', displayJobImage)
-
-app.patch('/user/pushtoken', updatePushToken)
-
-app.delete('/job/:id', deleteJob)
-app.delete('/image/:id', delImage)
+const jobController = new JobController(
+    new JobBusiness(
+        new JobData,
+        new Services
+    )
+)
 
 
 
+app.post('/signup', userController.signup)
+app.post('/login', userController.login)
+app.post('/jobs', jobController.create)
 
-app.listen(process.env.PORT || 3003, ()=>{
-  console.log('Server running at http://localhost:3003')
-})
+app.get('/jobs', jobController.getAllJobs)
+app.get('/userjobs', jobController.jobsByProvider)
+app.get('/job/:id', jobController.findById)
+app.get('/user', userController.findById)
+
+app.delete('/job/:id', jobController.delJob)

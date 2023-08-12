@@ -1,0 +1,48 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+    "name": "Flamarion",
+    "email": "eu@email.com",
+    "password": "123456",
+    "confirmPass": "123456"
+}
+
+###
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+    "email": "mesmo245@gmail.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:3003/jobs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiOTI5NTFjZWEtNTBhNi00ODA0LTllZTYtMGQ1ZjQ0ZjJjN2YyIiwiaWF0IjoxNjkxODUxNzEwLCJleHAiOjE2OTE4NTUzMTB9.dSNq5PJJg1HGjG20X0cYmGGWrf_BvBTdrYD92aCS8dc
+Content-Type: application/json
+
+{
+    "title": "Desenvolvedor",
+    "description": "Criação de aplicativos para internet e celular",
+    "phone": 71984707037,
+    "period": "Todos os dias da semana durante o horário comercial"
+}
+
+###
+GET http://localhost:3003/jobs
+
+###
+GET http://localhost:3003/userjobs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiOTI5NTFjZWEtNTBhNi00ODA0LTllZTYtMGQ1ZjQ0ZjJjN2YyIiwiaWF0IjoxNjkxODQ5OTc3LCJleHAiOjE2OTE4NTM1Nzd9.m67HtMRS7V-GckBTUEAJsdKU4suFz4ZsdvMMwmT6WMk
+
+###
+GET http://localhost:3003/job/ba154875-0625-4f5e-9e4d-18b893fbce17
+
+###
+GET http://localhost:3003/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiOTI5NTFjZWEtNTBhNi00ODA0LTllZTYtMGQ1ZjQ0ZjJjN2YyIiwiaWF0IjoxNjkxODUxNzEwLCJleHAiOjE2OTE4NTUzMTB9.dSNq5PJJg1HGjG20X0cYmGGWrf_BvBTdrYD92aCS8dc
+
+###
+DELETE http://localhost:3003/job/5d93eed1-7162-46f7-946d-66a7d68b3ebc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjoiOTI5NTFjZWEtNTBhNi00ODA0LTllZTYtMGQ1ZjQ0ZjJjN2YyIiwiaWF0IjoxNjkxODUxNzEwLCJleHAiOjE2OTE4NTUzMTB9.dSNq5PJJg1HGjG20X0cYmGGWrf_BvBTdrYD92aCS8dc
