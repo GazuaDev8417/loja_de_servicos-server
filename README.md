@@ -1,4 +1,4 @@
-# Labeninja
+# API Loja de Serviços
 
 API com os endpoints da aplicação Loja de Serivços. A aplicação consiste basicamente no cadastramento, intermediação e divulgação de mão de obra, onde 
 você registra no aplicativo o serviço que você presta, deixando seu contato e o seu
