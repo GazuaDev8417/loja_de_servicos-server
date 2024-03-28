@@ -13,9 +13,9 @@ export default class UserBusiness{
     ){}
 
     signup = async(input:SignupInput):Promise<string>=>{
-        const { name, email, password, confirmPass } = input
+        const { name, email, password } = input
 
-        if(!name || !email || !password || !confirmPass){
+        if(!name || !email || !password){
             throw{
                 statusCode: 401,
                 error: new Error('Preencha os campos')
@@ -26,13 +26,6 @@ export default class UserBusiness{
             throw{
                 statusCode: 403,
                 error: new Error('A senha deve ter o mínimo de 6 caracteres')
-            }
-        }
-        
-        if(password !== confirmPass){
-            throw{
-                statusCode: 403,
-                error: new Error('As senhas não correspondem')
             }
         }
         
