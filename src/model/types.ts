@@ -22,7 +22,7 @@ export type Job = {
     id:string,
     title:string
     description:string
-    phone:number
+    phone:string
     period:string
     provider:string
 }
@@ -30,6 +30,6 @@ export type Job = {
 export type JobInput = {
     title:string
     description:string
-    phone:number
+    phone:string
     period:string
 }

@@ -8,13 +8,8 @@ config()
 
 export default abstract class ConnectDatabase{
     protected static con = knex({
-        client: 'mysql2',
-        connection: {
-            host: process.env.DB_HOST,
-            user: process.env.DB_USER,
-            password: process.env.DB_PASSWORD,
-            database: process.env.DB_SCHEMA
-        }
+        client: 'pg',
+        connection: process.env.VERCEL_POSTGRESQL
     })
 
     public static testConnection = async():Promise<void>=>{

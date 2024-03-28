@@ -22,14 +22,6 @@ export default class JobBusiness{
             }
         }
 
-        const convert = String(phone).split('')
-        if(convert.length !== 11 || isNaN(phone)){
-            throw{
-                statusCode: 403,
-                error: new Error('Telefone inválido')
-            }
-        }
-
         const jobs = await this.jobData.findByProvider(user.id)
         if(jobs.length > 0){
             jobs.map(job=>{
