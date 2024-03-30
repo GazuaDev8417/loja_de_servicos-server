@@ -54,8 +54,11 @@ export default class JobBusiness{
     }
 
 
-    getAllJobs = async():Promise<Job[]>=>{
+    getAllJobs = async(req:Request):Promise<Job[]>=>{
+        //await authToken(req)
+        
         const jobs = await this.jobData.getAllJobs()
+        
         if(jobs.length === 0){
             throw{
                 statusCode: 404,

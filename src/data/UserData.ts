@@ -23,7 +23,8 @@ export default class UserData extends ConnectDatabase{
     findById = async(id:string):Promise<User>=>{
         try{
 
-            const [user] = await ConnectDatabase.con(this.USER_TABLE).where({ id })
+            const [user] = await ConnectDatabase.con(this.USER_TABLE)
+                .where({ id })
 
             return user
         }catch(e){

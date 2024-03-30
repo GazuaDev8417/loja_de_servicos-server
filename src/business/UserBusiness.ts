@@ -87,7 +87,9 @@ export default class UserBusiness{
 
 
     findById = async(req:Request):Promise<User>=>{
-        const user = await authToken(req)
+        const userBytoken = await authToken(req)
+
+        const user = await this.userData.findById(userBytoken.id)
 
         return user
     }
