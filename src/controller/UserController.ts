@@ -11,12 +11,11 @@ export default class UserController{
     ){}
 
     signup = async(req:Request, res:Response):Promise<void>=>{
-        const { name, email, password, confirmPass } = req.body
+        const { name, email, password } = req.body
         const input:SignupInput = {
             name,
             email,
-            password,
-            confirmPass
+            password
         }
 
         try{
